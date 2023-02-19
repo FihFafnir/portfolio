@@ -34,6 +34,7 @@ const SkillsContainer = styled.section`
         background-color: #ddd;
         border-radius: 5px;
         margin: 30px;
+        text-decoration: none;
     }
 
     .descriptionContainer {
@@ -51,9 +52,7 @@ const SkillsContainer = styled.section`
     }
 
     .iconContainer:hover {
-        position: fixed;
         top: ${({ paddingTop }) => paddingTop}px;
-        order: -1;
         color: #eee;
         background-color: #222;
         justify-content: space-evenly;
@@ -101,14 +100,19 @@ const SkillsContainer = styled.section`
         position: relative;
 
         .iconContainer {
-            transition: width ease 0.5s;
             padding-top: 10px;
             margin: 30px;
         }
 
         .iconContainer:hover {
-            width: 80%;
-            height: 80%;
+            width: 84%;
+            height: 500px;
+        }
+
+        .focus {
+            border: 1px solid #f00;
+            top: ${({ paddingTop }: IPropsSkills) => -paddingTop}x;
+            position: absolute;
         }
 
         .iconContainer p {
@@ -119,12 +123,13 @@ const SkillsContainer = styled.section`
 `;
 
 interface IPropsIconContainer {
+    id?: string;
     icon: JSX.Element;
     title: string;
     description: string;
 }
 
-const IconContainer = ({ icon, title, description }: IPropsIconContainer) => {
+const IconContainer = ({ id, icon, title, description }: IPropsIconContainer) => {
     return (
         <div
             className="iconContainer"
@@ -140,6 +145,7 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
     return (
         <SkillsContainer id="skills" paddingTop={paddingTop}>
             <IconContainer
+                id="html5"
                 icon={
                     <DiHtml5
                         className="icon"
@@ -150,7 +156,9 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
                 title="HTML 5"
                 description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
+            <div id="css3"></div>
             <IconContainer
+                id="css3"
                 icon={
                     <DiCss3
                         className="icon"
