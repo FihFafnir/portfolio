@@ -15,6 +15,7 @@ const NavBar = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 99;
 `;
 
 const NavBarItemsContainer = styled.div`
