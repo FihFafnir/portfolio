@@ -45,7 +45,7 @@ const SkillsContainer = styled.section`
         .descriptionContainer {
             position: fixed;
             width: 100%;
-            height: 100%;
+            height: 110%;
             top: 0;
             left: 0;
             background: rgba(0,0,0,.9);
@@ -58,13 +58,14 @@ const SkillsContainer = styled.section`
 
         .iconContainer {
             margin: 20px;
-            transition: all ease 0.5s;
+            transition: width ease 0.5s;
         }
 
         .iconContainer:hover {
             color: #eee;
             background-color: #222;
             justify-content: space-evenly;
+            padding-top: 10px;
             flex-wrap: wrap;
             width: 80%;
             height: 80%;
@@ -84,31 +85,40 @@ const SkillsContainer = styled.section`
 
         .iconContainer:hover > h1 {
             display: flex;
-            justify-content: center;
             align-items: center;
         }
 
         .iconContainer p {
-            border: 1px solid #0f0;
             display: none;
             font-size: 18px;
-            flex-wrap: wrap;
             text-align: justify;
             margin: 0px 50px 50px 50px;
         }
 
         .iconContainer:hover > p {
-            display: inline;
+            display: block;
         }
 `;
+
+const IconContainer = ({}) => {
+    return (
+        <label htmlFor="html5Icon" className="iconContainer">
+            <DiHtml5 id="html5Icon" className="icon" color="FF5722"  size={ICONS_SIZE} />
+                <h1>HTML 5</h1>
+                <p> É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi d
+esenvolvida com o objetivo de oferecer novas funcionalidades para a we
+b, tornando-a mais interativa e dinâmica.</p>
+        </label>
+    );
+}
 
 const Skills = ({ paddingTop }: IPropsSkills) => {
     return (
         <SkillsContainer id="skills" paddingTop={paddingTop}>
             <label htmlFor="html5Icon" className="iconContainer">
-                <DiHtml5 id="html5Icon" className="icon" size={ICONS_SIZE} />
+                <DiHtml5 id="html5Icon" className="icon" color="FF5722"  size={ICONS_SIZE} />
                 <h1>HTML 5</h1>
-                <p> é a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica.</p>
+                <p> É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica.</p>
             </label>
             <label className="iconContainer">
                 <div className="iconContent">
