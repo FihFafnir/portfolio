@@ -25,7 +25,6 @@ const SkillsContainer = styled.section`
     flex-wrap: wrap;
 
     .iconContainer {
-        border: 1px solid #000;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -33,8 +32,10 @@ const SkillsContainer = styled.section`
         height: 8em;
         background-color: #ddd;
         border-radius: 5px;
-        margin: 30px;
+        margin: 50px;
         text-decoration: none;
+        transition: all ease 1s;
+        color: #eee;
     }
 
     .descriptionContainer {
@@ -45,50 +46,57 @@ const SkillsContainer = styled.section`
         left: 0;
         background: rgba(0,0,0,.9);
         display: none;
+        opacity: 0;
+        transition: opacity ease 1s;
     }
 
     .iconContainer:hover ~ .descriptionContainer {
         display: block;
+        opacity: 1;
     }
 
     .iconContainer:hover {
-        top: ${({ paddingTop }) => paddingTop}px;
-        color: #eee;
-        background-color: #222;
-        justify-content: space-evenly;
-        padding-top: 40px;
+        background-color: #333;
         flex-wrap: wrap;
-        width: 80%;
-        height: 80%;
+        width: 20em;
+        height: 27em;
+        margin: 50px 10px 50px 10px;
         z-index: 2;
     }
 
     .iconContainer h1 {
+        display: flex;
+        align-items: center;
         color: #eee;
-        width: 5em;
+        width: 4em;
         height: 5em;
-        display: none;
+        position: absolute;
+        opacity: 0;
     }
 
     .iconContainer:hover > h1 {
-        display: flex;
-        align-items: center;
+        position: static;
+        padding-left: 15px;
+        width: 5em;
+        border: 1px solid #f00;
+        transition: all 0.5s ease-in 0.5s;
+        opacity: 1;
     }
 
     .iconContainer p {
         z-index: -1;
         position: absolute;
         opacity: 0;
-        font-size: 20px;
+        font-size: 18px;
         text-align: justify;
-        margin: 35px 50px 50px 50px;
+        margin: -10px 50px 50px 50px;
     }
 
     .iconContainer:hover > p {
         z-index: 1;
         opacity: 1;
         position: static;
-        height: 100%;
+        transition: all 1s ease 0.6s;
     }
 
     // Mobile CSS
@@ -167,56 +175,56 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
                     />
                 }
                 title="CSS 3"
-                description=""
+                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
                 icon={
                     <DiJavascript className="icon" size={ICONS_SIZE} />
                 }
                 title="Javascript"
-                description=""
+                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
                 icon={
                     <DiNodejs className="icon" size={ICONS_SIZE} />
                 }
-                title="NodeJS"
-                description=""
+                title=""
+                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
                 icon={
                     <DiReact className="icon" size={ICONS_SIZE} />
                 }
                 title="ReactJS"
-                description=""
+                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
                 icon={
                     <SiStyledcomponents className="icon" size={ICONS_SIZE} />
                 }
                 title="Styled Components"
-                description=""
+                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
                 icon={
                     <SiTypescript className="icon" size={ICONS_SIZE} />
                 }
                 title="TypeScript"
-                description=""
+                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
                 icon={
                     <DiGitBranch className="icon" size={ICONS_SIZE} />
                 }
                 title="Git"
-                description=""
+                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
                 icon={
                     <DiGithubBadge className="icon" size={ICONS_SIZE} />
                 }
                 title="GitHub"
-                description=""
+                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <div className="descriptionContainer"></div>
         </SkillsContainer>
