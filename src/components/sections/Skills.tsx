@@ -152,7 +152,11 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
             />
             <IconContainer
                 icon={
-                    <DiCss3 className="icon" size={ICONS_SIZE} />
+                    <DiCss3
+                        className="icon"
+                        color="2196F3"
+                        size={ICONS_SIZE}
+                    />
                 }
                 title="CSS 3"
                 description=""
