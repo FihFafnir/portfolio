@@ -1,25 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./components/Header";
+import Home from "./components/sections/Home";
+import About from "./components/sections/About";
+import Skills from "./components/sections/Skills";
+import Contact from "./components/sections/Contact";
+import { createGlobalStyle } from "styled-components";
 
-function App() {
+const NAV_HEIGHT: number  = 70;
+
+const GlobalStyle = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+    * {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: #f8f8f8;
+    }
+`;;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+        <GlobalStyle />
+        <Header navHeight={NAV_HEIGHT} />
+        <Home paddingTop={NAV_HEIGHT} />
+        <About paddingTop={NAV_HEIGHT} />
+        <Skills paddingTop={NAV_HEIGHT} />
+        <Contact paddingTop={NAV_HEIGHT} />
+    </main>
   );
 }
 
