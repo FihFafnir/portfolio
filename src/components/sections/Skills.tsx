@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import {
     DiHtml5,
@@ -19,24 +19,10 @@ const ICONS_SIZE:string = "5em";
 
 const SkillsContainer = styled.section`
     padding-top: ${({ paddingTop }: IPropsSkills) => paddingTop + 30}px;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
-    .iconContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 8em;
-        height: 8em;
-        background-color: #ddd;
-        border-radius: 5px;
-        margin: 50px;
-        text-decoration: none;
-        transition: all ease 1s;
-        color: #eee;
-    }
 
     .descriptionContainer {
         position: fixed;
@@ -49,54 +35,9 @@ const SkillsContainer = styled.section`
         opacity: 0;
         transition: opacity ease 1s;
     }
-
-    .iconContainer:hover ~ .descriptionContainer {
-        display: block;
-        opacity: 1;
-    }
-
-    .iconContainer:hover {
-        background-color: #333;
-        flex-wrap: wrap;
-        width: 20em;
-        height: 27em;
-        margin: 50px 10px 50px 10px;
-        z-index: 2;
-    }
-
-    .iconContainer h1 {
-        display: flex;
-        align-items: center;
-        color: #eee;
-        width: 4em;
-        height: 5em;
-        position: absolute;
-        opacity: 0;
-    }
-
-    .iconContainer:hover > h1 {
-        position: static;
-        padding-left: 15px;
-        width: 5em;
-        border: 1px solid #f00;
-        transition: all 0.5s ease-in 0.5s;
-        opacity: 1;
-    }
-
-    .iconContainer p {
-        z-index: -1;
-        position: absolute;
-        opacity: 0;
-        font-size: 18px;
-        text-align: justify;
-        margin: -10px 50px 50px 50px;
-    }
-
-    .iconContainer:hover > p {
-        z-index: 1;
-        opacity: 1;
-        position: static;
-        transition: all 1s ease 0.6s;
+    
+    .iconContainer:hover ~ .iconContainer {
+        margin: 50px 20px 50px 20px;
     }
 
     // Mobile CSS
@@ -130,6 +71,73 @@ const SkillsContainer = styled.section`
     }
 `;
 
+const IconContainerDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8em;
+    height: 8em;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin: 50px;
+    text-decoration: none;
+    transition: all ease 1s;
+    color: #eee;
+
+    &:hover {
+        background-color: #333;
+        flex-wrap: wrap;
+        width: 20em;
+        height: 27em;
+        margin: 50px 0px 50px 0px;
+        z-index: 2;
+    }
+
+    .hovered {
+        margin: 50px 20px 50px 20px;
+    }
+
+    &:hover ~ .descriptionContainer {
+        display: block;
+        opacity: 1;
+    }
+
+    h1 {
+        display: flex;
+        align-items: center;
+        color: #eee;
+        width: 4em;
+        height: 5em;
+        position: absolute;
+        opacity: 0;
+    }
+
+    &:hover > h1 {
+        position: static;
+        padding-left: 15px;
+        width: 5em;
+        border: 1px solid #f00;
+        transition: all 0.5s ease-in 0.5s;
+        opacity: 1; 
+    }
+
+    p {
+        z-index: -1;
+        position: absolute;
+        opacity: 0;
+        font-size: 18px;
+        text-align: justify;
+        margin: -10px 50px 50px 50px;
+    }
+
+    &:hover > p {
+        z-index: 1;
+        opacity: 1;
+        position: static;
+        transition: all 1s ease 0.6s;
+    }
+`;
+
 interface IPropsIconContainer {
     id?: string;
     icon: JSX.Element;
@@ -137,15 +145,15 @@ interface IPropsIconContainer {
     description: string;
 }
 
-const IconContainer = ({ id, icon, title, description }: IPropsIconContainer) => {
+const IconContainer = ({ icon, title, description }: IPropsIconContainer) => {
+    const [isHovered, setIsHovered] = useState(false);
+
     return (
-        <div
-            className="iconContainer"
-        >
+        <IconContainerDiv onMouseEnter={() => setIsHovered(true)} className={isHovered ? "hovered" : ""}> 
             { icon }
             <h1>{ title }</h1>
             <p>{ description }</p>
-        </div>
+        </IconContainerDiv>
     );
 }
 
@@ -153,7 +161,6 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
     return (
         <SkillsContainer id="skills" paddingTop={paddingTop}>
             <IconContainer
-                id="html5"
                 icon={
                     <DiHtml5
                         className="icon"
@@ -164,9 +171,7 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
                 title="HTML 5"
                 description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
-            <div id="css3"></div>
             <IconContainer
-                id="css3"
                 icon={
                     <DiCss3
                         className="icon"
