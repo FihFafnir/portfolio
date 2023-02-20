@@ -24,6 +24,10 @@ const SkillsContainer = styled.section`
     justify-content: center;
     flex-wrap: wrap;
 
+    .hovered {
+        margin: 50px 25px 50px 25px;
+    }
+
     .descriptionContainer {
         position: fixed;
         width: 100%;
@@ -35,7 +39,7 @@ const SkillsContainer = styled.section`
         opacity: 0;
         transition: opacity ease 1s;
     }
-    
+
     .iconContainer:hover ~ .iconContainer {
         margin: 50px 20px 50px 20px;
     }
@@ -93,10 +97,6 @@ const IconContainerDiv = styled.div`
         z-index: 2;
     }
 
-    .hovered {
-        margin: 50px 20px 50px 20px;
-    }
-
     &:hover ~ .descriptionContainer {
         display: block;
         opacity: 1;
@@ -118,7 +118,7 @@ const IconContainerDiv = styled.div`
         width: 5em;
         border: 1px solid #f00;
         transition: all 0.5s ease-in 0.5s;
-        opacity: 1; 
+        opacity: 1;
     }
 
     p {
@@ -139,39 +139,58 @@ const IconContainerDiv = styled.div`
 `;
 
 interface IPropsIconContainer {
-    id?: string;
+    className: string;
+    setIsHovered: Function;
     icon: JSX.Element;
     title: string;
     description: string;
+    hovered?: boolean;
 }
 
-const IconContainer = ({ icon, title, description }: IPropsIconContainer) => {
-    const [isHovered, setIsHovered] = useState(false);
-
+const IconContainer = ({ className, setIsHovered, icon, title, description, hovered }: IPropsIconContainer) => {
     return (
-        <IconContainerDiv onMouseEnter={() => setIsHovered(true)} className={isHovered ? "hovered" : ""}> 
+        <IconContainerDiv
+            className={className}
+            onMouseEnter={() => {
+                setIsHovered(true);
+            }}
+            onMouseLeave={() => {
+                setIsHovered(false);
+            }}
+        >
             { icon }
             <h1>{ title }</h1>
             <p>{ description }</p>
         </IconContainerDiv>
     );
+
 }
 
+
 const Skills = ({ paddingTop }: IPropsSkills) => {
+    const [isHovered, setIsHovered] = useState(false);
+
     return (
         <SkillsContainer id="skills" paddingTop={paddingTop}>
             <IconContainer
+                className={isHovered ? "hovered" : ""}
+                setIsHovered={setIsHovered}
+
                 icon={
                     <DiHtml5
                         className="icon"
                         color="FF5722"
                         size={ICONS_SIZE}
-                    />
+                        />
                 }
                 title="HTML 5"
                 description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
+
             <IconContainer
+                className={isHovered ? "hovered" : ""}
+                setIsHovered={setIsHovered}
+
                 icon={
                     <DiCss3
                         className="icon"
@@ -183,6 +202,9 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
                 description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
+                className={isHovered ? "hovered" : ""}
+                setIsHovered={setIsHovered}
+
                 icon={
                     <DiJavascript className="icon" size={ICONS_SIZE} />
                 }
@@ -190,6 +212,9 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
                 description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
+                className={isHovered ? "hovered" : ""}
+                setIsHovered={setIsHovered}
+
                 icon={
                     <DiNodejs className="icon" size={ICONS_SIZE} />
                 }
@@ -197,6 +222,9 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
                 description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
+                className={isHovered ? "hovered" : ""}
+                setIsHovered={setIsHovered}
+
                 icon={
                     <DiReact className="icon" size={ICONS_SIZE} />
                 }
@@ -204,6 +232,9 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
                 description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
+                className={isHovered ? "hovered" : ""}
+                setIsHovered={setIsHovered}
+
                 icon={
                     <SiStyledcomponents className="icon" size={ICONS_SIZE} />
                 }
@@ -211,6 +242,9 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
                 description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
+                className={isHovered ? "hovered" : ""}
+                setIsHovered={setIsHovered}
+
                 icon={
                     <SiTypescript className="icon" size={ICONS_SIZE} />
                 }
@@ -218,6 +252,9 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
                 description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
+                className={isHovered ? "hovered" : ""}
+                setIsHovered={setIsHovered}
+
                 icon={
                     <DiGitBranch className="icon" size={ICONS_SIZE} />
                 }
@@ -225,6 +262,9 @@ const Skills = ({ paddingTop }: IPropsSkills) => {
                 description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
             />
             <IconContainer
+                className={isHovered ? "hovered" : ""}
+                setIsHovered={setIsHovered}
+
                 icon={
                     <DiGithubBadge className="icon" size={ICONS_SIZE} />
                 }

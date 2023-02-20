@@ -40,7 +40,7 @@ const Header = ({ navHeight }: IPropsHeader) => {
     return (
         <header>
             <NavBar navHeight={navHeight} >
-                <LogoContainer href="#home">Meu Portfólio</LogoContainer>
+                <LogoContainer href="#home">Portfólio</LogoContainer>
                 <NavBarItemsContainer>
                     <a href="#home">Home</a>
                     <a href="#about">Sobre</a>
