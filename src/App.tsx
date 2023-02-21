@@ -32,7 +32,7 @@ const App = () => {
         <Header navHeight={NAV_HEIGHT} />
         <Home paddingTop={NAV_HEIGHT} />
         <About paddingTop={NAV_HEIGHT} />
-        <Skills paddingTop={NAV_HEIGHT} />
+        <Skills />
         <Contact paddingTop={NAV_HEIGHT} />
     </main>
   );
