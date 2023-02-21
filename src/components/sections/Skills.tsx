@@ -11,267 +11,148 @@ import {
 } from "react-icons/di";
 import { SiTypescript, SiStyledcomponents } from "react-icons/si";
 
-interface IPropsSkills {
-    paddingTop: number;
-}
-
-const ICONS_SIZE:string = "5em";
+const ICON_SIZE:number = 4;
 
 const SkillsContainer = styled.section`
-    padding-top: ${({ paddingTop }: IPropsSkills) => paddingTop + 30}px;
     height: 100%;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    .hovered {
-        margin: 50px 25px 50px 25px;
+    align-items: center;
+    padding-top: 120px;
+    .skillsContent {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
-    .descriptionContainer {
-        position: fixed;
+    .iconContainer {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: #ddd;
+        width: 50%;
+        height: 200px;
+        margin: -15px -10px 15px -10px;
+        transform: scale(.60);
+        transition: all ease 1s;
+        border-radius: 5px;
+        z-index: 1;
+    }
+
+    .iconContainer:hover {
+        background-color: #333;
+        transform: scale(1);
+        height: 300px;
+        color: #eee;
+        box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
+        z-index: 3;
+    }
+
+    .icon {
+        transition: transform ease 1s;
+    }
+
+    .iconContainer:hover > .icon {
+        transform: translateY(-90px);
+    }
+
+    .iconContent {
+        position: absolute;
         width: 100%;
-        height: 110%;
+        height: 0;
+        transition: all ease 1s;
+    }
+
+    .darkBackground {
+        position: fixed;
         top: 0;
         left: 0;
-        background: rgba(0,0,0,.9);
-        display: none;
+        border: 1px solid #f00;
+        background-color: rgba(0,0,0,.5);
         opacity: 0;
+        width: 100%;
+        height: 130%;
+        z-index: 0;
         transition: opacity ease 1s;
     }
 
-    .iconContainer:hover ~ .iconContainer {
-        margin: 50px 20px 50px 20px;
-    }
-
-    // Mobile CSS
-
-    @media only screen and (max-width: 600px) {
-        padding-top: ${({ paddingTop }: IPropsSkills) => paddingTop + 20}px;
-        height: 100%;
-        justify-content: center;
-        position: relative;
-
-        .iconContainer {
-            padding-top: 10px;
-            margin: 30px;
-        }
-
-        .iconContainer:hover {
-            width: 84%;
-            height: 500px;
-        }
-
-        .focus {
-            border: 1px solid #f00;
-            top: ${({ paddingTop }: IPropsSkills) => -paddingTop}x;
-            position: absolute;
-        }
-
-        .iconContainer p {
-            font-size: 18px;
-            margin: 0px 50px 50px 50px;
-        }
-    }
-`;
-
-const IconContainerDiv = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 8em;
-    height: 8em;
-    background-color: #ddd;
-    border-radius: 5px;
-    margin: 50px;
-    text-decoration: none;
-    transition: all ease 1s;
-    color: #eee;
-
-    &:hover {
-        background-color: #333;
-        flex-wrap: wrap;
-        width: 20em;
-        height: 27em;
-        margin: 50px 0px 50px 0px;
-        z-index: 2;
-    }
-
-    &:hover ~ .descriptionContainer {
-        display: block;
-        opacity: 1;
-    }
-
-    h1 {
-        display: flex;
-        align-items: center;
-        color: #eee;
-        width: 4em;
-        height: 5em;
-        position: absolute;
-        opacity: 0;
-    }
-
-    &:hover > h1 {
-        position: static;
-        padding-left: 15px;
-        width: 5em;
-        border: 1px solid #f00;
-        transition: all 0.5s ease-in 0.5s;
-        opacity: 1;
-    }
-
-    p {
-        z-index: -1;
-        position: absolute;
-        opacity: 0;
-        font-size: 18px;
-        text-align: justify;
-        margin: -10px 50px 50px 50px;
-    }
-
-    &:hover > p {
+    .iconContainer:hover ~ .darkBackground {
+        opacity: 1:
         z-index: 1;
-        opacity: 1;
-        position: static;
-        transition: all 1s ease 0.6s;
     }
 `;
 
-interface IPropsIconContainer {
-    className: string;
-    setIsHovered: Function;
-    icon: JSX.Element;
-    title: string;
-    description: string;
-    hovered?: boolean;
-}
-
-const IconContainer = ({ className, setIsHovered, icon, title, description, hovered }: IPropsIconContainer) => {
+const Skills = () => {
     return (
-        <IconContainerDiv
-            className={className}
-            onMouseEnter={() => {
-                setIsHovered(true);
-            }}
-            onMouseLeave={() => {
-                setIsHovered(false);
-            }}
-        >
-            { icon }
-            <h1>{ title }</h1>
-            <p>{ description }</p>
-        </IconContainerDiv>
-    );
-
-}
-
-
-const Skills = ({ paddingTop }: IPropsSkills) => {
-    const [isHovered, setIsHovered] = useState(false);
-
-    return (
-        <SkillsContainer id="skills" paddingTop={paddingTop}>
-            <IconContainer
-                className={isHovered ? "hovered" : ""}
-                setIsHovered={setIsHovered}
-
-                icon={
-                    <DiHtml5
-                        className="icon"
-                        color="FF5722"
-                        size={ICONS_SIZE}
-                        />
-                }
-                title="HTML 5"
-                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
-            />
-
-            <IconContainer
-                className={isHovered ? "hovered" : ""}
-                setIsHovered={setIsHovered}
-
-                icon={
-                    <DiCss3
-                        className="icon"
-                        color="2196F3"
-                        size={ICONS_SIZE}
+        <SkillsContainer id="skills">
+            <div className="skillsContent">
+                <div className="iconContainer">
+                    <DiHtml5 
+                        className="icon" 
+                        size={ICON_SIZE + "em"}
                     />
-                }
-                title="CSS 3"
-                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
-            />
-            <IconContainer
-                className={isHovered ? "hovered" : ""}
-                setIsHovered={setIsHovered}
-
-                icon={
-                    <DiJavascript className="icon" size={ICONS_SIZE} />
-                }
-                title="Javascript"
-                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
-            />
-            <IconContainer
-                className={isHovered ? "hovered" : ""}
-                setIsHovered={setIsHovered}
-
-                icon={
-                    <DiNodejs className="icon" size={ICONS_SIZE} />
-                }
-                title=""
-                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
-            />
-            <IconContainer
-                className={isHovered ? "hovered" : ""}
-                setIsHovered={setIsHovered}
-
-                icon={
-                    <DiReact className="icon" size={ICONS_SIZE} />
-                }
-                title="ReactJS"
-                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
-            />
-            <IconContainer
-                className={isHovered ? "hovered" : ""}
-                setIsHovered={setIsHovered}
-
-                icon={
-                    <SiStyledcomponents className="icon" size={ICONS_SIZE} />
-                }
-                title="Styled Components"
-                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
-            />
-            <IconContainer
-                className={isHovered ? "hovered" : ""}
-                setIsHovered={setIsHovered}
-
-                icon={
-                    <SiTypescript className="icon" size={ICONS_SIZE} />
-                }
-                title="TypeScript"
-                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
-            />
-            <IconContainer
-                className={isHovered ? "hovered" : ""}
-                setIsHovered={setIsHovered}
-
-                icon={
-                    <DiGitBranch className="icon" size={ICONS_SIZE} />
-                }
-                title="Git"
-                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
-            />
-            <IconContainer
-                className={isHovered ? "hovered" : ""}
-                setIsHovered={setIsHovered}
-
-                icon={
-                    <DiGithubBadge className="icon" size={ICONS_SIZE} />
-                }
-                title="GitHub"
-                description="É a quinta versão da linguagem de marcação HTML (Hypertext Markup Language), utilizada para criar páginas web. Ela foi desenvolvida com o objetivo de oferecer novas funcionalidades para a web, tornando-a mais interativa e dinâmica."
-            />
-            <div className="descriptionContainer"></div>
+                    <p className="iconContent"></p>
+                </div>
+                <div className="iconContainer">
+                    <DiCss3 
+                        className="icon" 
+                        size={ICON_SIZE + "em"}
+                    />
+                    <p className="iconContent"></p>
+                </div>
+                <div className="iconContainer">
+                    <DiJavascript 
+                        className="icon"
+                        size={ICON_SIZE + "em"}
+                    />
+                    <p className="iconContent"></p>
+                </div>
+                <div className="iconContainer">
+                    <SiTypescript 
+                        className="icon"
+                        size={ICON_SIZE + "em"}
+                    />
+                    <p className="iconContent"></p>
+                </div>
+                <div className="iconContainer">
+                    <DiReact 
+                        className="icon" 
+                        size={ICON_SIZE + "em"}
+                    />
+                    <p className="iconContent"></p>
+                </div>
+                <div className="iconContainer">
+                    <SiStyledcomponents 
+                        className="icon"
+                        size={ICON_SIZE + "em"}
+                    />
+                    <p className="iconContent"></p>
+                </div>
+                <div className="iconContainer">
+                    <DiNodejs 
+                        className="icon"
+                        size={ICON_SIZE + "em"}
+                    />
+                    <p className="iconContent"></p>
+                </div>
+                <div className="iconContainer">
+                    <DiGitBranch 
+                        className="icon"
+                        size={ICON_SIZE + "em"}
+                    />
+                    <p className="iconContent"></p>
+                </div>
+                <div className="iconContainer">
+                    <DiGithubBadge 
+                        className="icon"
+                        size={ICON_SIZE + "em"}
+                    />
+                    <p className="iconContent"></p>
+                </div>
+                <div className="darkBackground" ></div>
+            </div>
         </SkillsContainer>
     );
 }
