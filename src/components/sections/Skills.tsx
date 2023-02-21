@@ -18,6 +18,7 @@ interface ISkillsContainerProps {
 }
 
 const SkillsContainer = styled.section`
+    position: relative;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -48,7 +49,7 @@ const SkillsContainer = styled.section`
     .iconContainer:hover {
         background-color: #333;
         transform: scale(1);
-        height: 300px;
+        height: 340px;
         color: #eee;
         box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
         z-index: 3;
@@ -65,27 +66,18 @@ const SkillsContainer = styled.section`
 
     .iconContent {
         position: absolute;
-        width: 100%;
+        top: 120px;
+        text-align: justify;
+        font-size: 11pt;
+        width: 80%;
         height: 0;
-        transition: all ease 1s;
-    }
-
-    .darkBackground {
-        position: fixed;
-        top: 0;
-        left: 0;
-        border: 1px solid #f00;
-        background-color: rgba(0,0,0,.5);
         opacity: 0;
-        width: 100%;
-        height: 130%;
-        z-index: 0;
-        transition: opacity ease 1s;
     }
 
-    .iconContainer:hover ~ .darkBackground {
-        opacity: 1:
-        z-index: 1;
+    .iconContainer:hover > .iconContent {
+        height: min-content;
+        opacity: 1;
+        transition: opacity 1s ease 0.5s;
     }
 
     // Laptop CSS
@@ -113,6 +105,7 @@ const SkillsContainer = styled.section`
 
     @media only screen and (max-width: 600px) {
         .iconContainer {
+            width: 50%;
             height: ${({ screenWidth }: ISkillsContainerProps) => screenWidth*0.5}px;
         }
     }
@@ -136,7 +129,7 @@ const Skills = () => {
                         size={ICON_SIZE + "em"}
                         color="FF5722"
                     />
-                    <p className="iconContent">HTML é a linguagem de marcação usada para criar e exibir conteúdo na web. Com ela, é possível definir a estrutura de uma página web, bem como adicionar texto, imagens, links e outros elementos interativos. É a base fundamental para o desenvolvimento de websites.</p>
+                    <p className="iconContent">HTML (Hypertext Markup Language) é uma linguagem de marcação usada para criar a estrutura e conteúdo de páginas da web.</p>
                 </div>
                 <div className="iconContainer">
                     <DiCss3
@@ -144,7 +137,7 @@ const Skills = () => {
                         size={ICON_SIZE + "em"}
                         color="2196F3"
                     />
-                    <p className="iconContent">CSS é uma linguagem de estilo usada para controlar a apresentação visual de páginas web. Ela permite alterar o layout, cores, fontes, tamanhos e outros aspectos visuais de um site. É essencial para criar uma experiência visual agradável e consistente na web.</p>
+                    <p className="iconContent">CSS (Cascading Style Sheets) é uma linguagem usada para estilizar e formatar páginas da web escritas em HTML e define a aparência visual dos elementos na página, como fontes, cores e layout.</p>
                 </div>
                 <div className="iconContainer">
                     <DiJavascript
@@ -152,7 +145,7 @@ const Skills = () => {
                         size={ICON_SIZE + "em"}
                         color="EDBB36"
                     />
-                    <p className="iconContent">JavaScript é uma linguagem de programação de alto nível que é usada principalmente para criar interações dinâmicas em páginas web. É executada no lado do cliente, permitindo a criação de funções e comportamentos mais avançados, como animações, validações de formulário e atualizações em tempo real. É uma das principais linguagens de programação utilizadas para o desenvolvimento de aplicações web.</p>
+                    <p className="iconContent">JavaScript é uma linguagem de programação que é usada para adicionar interatividade e dinamismo a páginas da web, bem como para criar aplicativos web completos e outras soluções de software.</p>
                 </div>
                 <div className="iconContainer">
                     <SiTypescript
@@ -160,7 +153,7 @@ const Skills = () => {
                         size={ICON_SIZE + "em"}
                         color="3178C6"
                     />
-                    <p className="iconContent">TypeScript é uma linguagem de programação de alto nível que é baseada em JavaScript. Ela adiciona recursos de tipagem estática, interfaces e outros recursos de linguagem para melhorar a qualidade do código e a produtividade do desenvolvedor. É usado principalmente para o desenvolvimento de grandes aplicações web e é compatível com a maioria dos frameworks e bibliotecas JavaScript existentes.</p>
+                    <p className="iconContent">TypeScript é uma extensão do JavaScript que adiciona tipagem estática e outras funcionalidades para ajudar na construção de aplicações mais robustas e escaláveis.</p>
                 </div>
                 <div className="iconContainer">
                     <DiReact
@@ -168,7 +161,7 @@ const Skills = () => {
                         size={ICON_SIZE + "em"}
                         color="61DBFB"
                     />
-                    <p className="iconContent">React é uma biblioteca JavaScript usada para criar interfaces de usuário dinâmicas em páginas web. Ela permite a criação de componentes reutilizáveis e escaláveis, que podem ser atualizados em tempo real sem a necessidade de recarregar a página. É amplamente utilizado em aplicações web modernas, como redes sociais e aplicativos de comércio eletrônico.</p>
+                    <p className="iconContent">React é uma biblioteca JavaScript usada para construir interfaces de usuário (UI) em aplicações web, permitindo a criação de componentes reutilizáveis e atualizações em tempo real.</p>
                 </div>
                 <div className="iconContainer">
                     <SiStyledcomponents
@@ -176,7 +169,7 @@ const Skills = () => {
                         size={ICON_SIZE + "em"}
                         color="DE778F"
                     />
-                    <p className="iconContent">Styled Components é uma biblioteca JavaScript que permite escrever estilos em CSS dentro dos próprios componentes React. Ela utiliza a técnica de CSS-in-JS, que torna mais fácil o gerenciamento de estilos em grandes projetos, além de permitir a criação de componentes com estilos mais encapsulados e reutilizáveis. É amplamente utilizado em aplicações React modernas.</p>
+                    <p className="iconContent">Styled Components é uma biblioteca JavaScript que permite escrever estilos em CSS dentro dos próprios componentes React. Ela utiliza a técnica de CSS-in-JS, que torna mais fácil o gerenciamento de estilos.</p>
                 </div>
                 <div className="iconContainer">
                     <DiNodejs
@@ -184,7 +177,7 @@ const Skills = () => {
                         size={ICON_SIZE + "em"}
                         color="66A060"
                     />
-                    <p className="iconContent">Node.js é um ambiente de tempo de execução JavaScript de código aberto, baseado no mecanismo de JavaScript V8 do Google. Ele permite que o JavaScript seja executado fora de um navegador, o que o torna adequado para a construção de aplicações web do lado do servidor. Ele é amplamente utilizado para criar APIs, aplicativos de rede em tempo real, aplicações de linha de comando e outras aplicações de backend em JavaScript.</p>
+                    <p className="iconContent">Node.js é um ambiente de tempo de execução (runtime) JavaScript que permite desenvolver aplicações do lado do servidor e ferramentas de linha de comando.</p>
                 </div>
                 <div className="iconContainer">
                     <DiGit
@@ -192,16 +185,15 @@ const Skills = () => {
                         size={ICON_SIZE + "em"}
                         color="F05033"
                     />
-                    <p className="iconContent">Git é um sistema de controle de versão distribuído, usado para rastrear mudanças no código fonte durante o desenvolvimento de software. Ele permite que os desenvolvedores trabalhem em equipe, gerenciem diferentes versões do código e resolvam conflitos de forma eficiente. É amplamente utilizado na indústria de desenvolvimento de software para controle de versão de código fonte.</p>
+                    <p className="iconContent">Git é um sistema de controle de versão distribuído, usado para rastrear mudanças no código fonte durante o desenvolvimento de software.</p>
                 </div>
                 <div className="iconContainer">
                     <DiGithubBadge
                         className="icon"
                         size={ICON_SIZE + "em"}
                     />
-                    <p className="iconContent">GitHub é uma plataforma web de hospedagem de código-fonte e gerenciamento de projetos baseada no sistema de controle de versão Git. Ela permite que os desenvolvedores colaborem em projetos de software, rastreiem e resolvam problemas e criem documentação de software. É amplamente utilizado para hospedar projetos de código aberto e como ferramenta de colaboração entre equipes de desenvolvimento.</p>
+                    <p className="iconContent">GitHub é uma plataforma web de hospedagem de código-fonte e gerenciamento de projetos baseada no sistema de controle de versão Git.</p>
                 </div>
-                <div className="darkBackground" ></div>
             </div>
         </SkillsContainer>
     );
