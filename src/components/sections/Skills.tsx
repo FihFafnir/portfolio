@@ -10,6 +10,7 @@ import {
     DiGithubBadge
 } from "react-icons/di";
 import { SiTypescript, SiStyledcomponents } from "react-icons/si";
+import { BlurredBackground } from "../GenericComponents";
 
 const ICON_SIZE:number = 4;
 
@@ -39,7 +40,6 @@ const SkillsContainer = styled.section`
         transform: scale(.60);
         transition: all ease 1s;
         border-radius: 5px;
-        z-index: 1;
     }
 
     .iconContainer:hover {
@@ -49,6 +49,15 @@ const SkillsContainer = styled.section`
         color: #eee;
         box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
         z-index: 3;
+    }
+
+    .blurredBackground {
+        z-index: 1;
+    }
+
+    .iconContainer:hover ~ .blurredBackground {
+        opacity: 1;
+        height: 100vh;
     }
 
     .icon {
@@ -182,6 +191,7 @@ const Skills = () => {
                     />
                     <p className="iconContent">GitHub é uma plataforma web de hospedagem de código-fonte e gerenciamento de projetos baseada no sistema de controle de versão Git.</p>
                 </div>
+                <BlurredBackground />
             </div>
         </SkillsContainer>
     );

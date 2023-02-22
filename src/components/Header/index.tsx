@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import MenuButton from "./MenuButton";
+import { BlurredBackground } from "../GenericComponents";
 
 
-interface IPropsHeader {
+interface IHeaderProps {
     navHeight: number;
 }
 
@@ -13,12 +14,12 @@ const NavBar = styled.nav`
     left: 0;
     background-color: #fff;
     width: 100%;
-    height: ${({ navHeight }: IPropsHeader) => navHeight}px;
+    height: ${({ navHeight }: IHeaderProps) => navHeight}px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 99;
-    
+
     input[type="checkbox"] {
         display: none;
     }
@@ -37,6 +38,11 @@ const NavBar = styled.nav`
         #menu:checked ~ .navBarItemsContainer {
             width: 60vw;
             transform: translateX(0);
+        }
+
+        #menu:checked ~ .blurredBackground {
+            height: 100vh;
+            opacity: 1;
         }
     }
 `;
@@ -85,19 +91,28 @@ const LogoContainer = styled.a`
     text-decoration: none;
 `;
 
-const Header = ({ navHeight }: IPropsHeader) => {
+const Header = ({ navHeight }: IHeaderProps) => {
+    const [menuChecked, setMenuChecked] = useState(false);
+
+    const checkboxHandler = ():void => {
+        setMenuChecked(false);
+    }
+
     return (
         <header>
             <NavBar navHeight={navHeight} >
                 <LogoContainer href="#home">Portfólio</LogoContainer>
-                <input id="menu" type="checkbox" />
+                <input id="menu" type="checkbox" onChange={() => {
+                    setMenuChecked(() => !menuChecked);
+                }} checked={menuChecked} />
                 <MenuButton />
                 <NavBarItemsContainer className="navBarItemsContainer">
-                    <a href="#home">Home</a>
-                    <a href="#about">Sobre</a>
-                    <a href="#skills">Habilidades</a>
-                    <a href="#contact">Contato</a>
+                    <a href="#home" onClick={checkboxHandler} >Home</a>
+                    <a href="#about" onClick={checkboxHandler}>Sobre</a>
+                    <a href="#skills" onClick={checkboxHandler}>Habilidades</a>
+                    <a href="#contact" onClick={checkboxHandler}>Contato</a>
                 </NavBarItemsContainer>
+                <BlurredBackground htmlFor="menu" />
             </NavBar>
         </header>
     );

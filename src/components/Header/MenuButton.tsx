@@ -9,6 +9,7 @@ const MenuButtonContainer = styled.label`
     align-items: center;
     width: 30px;
     height: 30px;
+    cursor: pointer;
 
     .line {
         width: 24px;

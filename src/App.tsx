@@ -4,18 +4,20 @@ import Home from "./components/sections/Home";
 import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
 import Contact from "./components/sections/Contact";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const NAV_HEIGHT: number  = 70;
 
 const App = () => {
   return (
     <>
-        <Helmet>
-            <meta charSet="utf-8"/>
-            <title></title>
-            <link  rel="stylesheet" href="style.css" />
-        </Helmet>
+        <HelmetProvider>
+            <Helmet>
+                <meta charSet="utf-8"/>
+                <title></title>
+                <link  rel="stylesheet" href="style.css" />
+            </Helmet>
+        </HelmetProvider>
         <Header navHeight={NAV_HEIGHT} />
         <main>
             <Home paddingTop={NAV_HEIGHT} />
