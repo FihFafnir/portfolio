@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import {
     DiHtml5,
@@ -12,10 +12,6 @@ import {
 import { SiTypescript, SiStyledcomponents } from "react-icons/si";
 
 const ICON_SIZE:number = 4;
-
-interface ISkillsContainerProps {
-    screenWidth: number;
-}
 
 const SkillsContainer = styled.section`
     position: relative;
@@ -38,7 +34,7 @@ const SkillsContainer = styled.section`
         flex-wrap: wrap;
         background-color: #ddd;
         width: 16%;
-        height: ${({ screenWidth }: ISkillsContainerProps) => screenWidth * 0.16}px;
+        height: 16vw;
         margin: -15px -10px 15px -10px;
         transform: scale(.60);
         transition: all ease 1s;
@@ -85,7 +81,7 @@ const SkillsContainer = styled.section`
     @media only screen and (max-width: 992px) {
         .iconContainer {
             width: 25%;
-            height: ${({ screenWidth }: ISkillsContainerProps) => screenWidth*0.25}px;
+            height: 25vw;
         }
     }
 
@@ -97,7 +93,7 @@ const SkillsContainer = styled.section`
 
         .iconContainer {
             width: 33%;
-            height: ${({ screenWidth }: ISkillsContainerProps) => screenWidth*0.33}px;
+            height: 33vw;
         }
     }
 
@@ -106,22 +102,14 @@ const SkillsContainer = styled.section`
     @media only screen and (max-width: 600px) {
         .iconContainer {
             width: 50%;
-            height: ${({ screenWidth }: ISkillsContainerProps) => screenWidth*0.5}px;
+            height: 50vw;
         }
     }
 `;
 
 const Skills = () => {
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-    window.addEventListener("resize", () => {
-        const newScreenWidth: number = window.innerWidth;
-
-        setScreenWidth(newScreenWidth);
-    });
-
     return (
-        <SkillsContainer id="skills" screenWidth={screenWidth}>
+        <SkillsContainer id="skills">
             <div className="skillsContent">
                 <div className="iconContainer">
                     <DiHtml5
