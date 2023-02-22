@@ -41,7 +41,7 @@ const NavBar = styled.nav`
         }
 
         #menu:checked ~ .blurredBackground {
-            height: 100vh;
+            transform: translateX(0);
             opacity: 1;
         }
     }
@@ -110,6 +110,7 @@ const Header = ({ navHeight }: IHeaderProps) => {
                     <a href="#home" onClick={checkboxHandler} >Home</a>
                     <a href="#about" onClick={checkboxHandler}>Sobre</a>
                     <a href="#skills" onClick={checkboxHandler}>Habilidades</a>
+                    <a href="#projects" onClick={checkboxHandler}>Projetos</a>
                     <a href="#contact" onClick={checkboxHandler}>Contato</a>
                 </NavBarItemsContainer>
                 <BlurredBackground htmlFor="menu" />

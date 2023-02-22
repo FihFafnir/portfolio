@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Home from "./components/sections/Home";
 import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
+import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
@@ -23,6 +24,7 @@ const App = () => {
             <Home paddingTop={NAV_HEIGHT} />
             <About paddingTop={NAV_HEIGHT} />
             <Skills />
+            <Projects />
             <Contact paddingTop={NAV_HEIGHT} />
         </main>
     </>

@@ -57,7 +57,7 @@ const SkillsContainer = styled.section`
 
     .iconContainer:hover ~ .blurredBackground {
         opacity: 1;
-        height: 100vh;
+        transform: translateX(0);
     }
 
     .icon {
