@@ -1,50 +1,46 @@
 import React from "react";
 import styled from "styled-components";
 
-const MenuButtonContainer = styled.div`
+const MenuButtonContainer = styled.label`
     position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    border: 1px solid #111;
-    border-radius: 3px;
-
-
+    width: 30px;
+    height: 30px;
 
     .line {
-        width: 32px;
+        width: 24px;
         height: 3px;
         border-radius: 3px;
         background-color: #000;
-        transition: all ease 1s;
+        transition: all ease 0.6s;
     }
 
     .line:nth-child(2) {
         transition: all ease 0.2s;
     }
 
-    &:hover > .line:nth-child(1) {
-        transform: translateY(10px) rotate(45deg);
+    #menu: checked ~ & > .line:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
         background-color: red;
     }
 
-    &:hover > .line:nth-child(2) {
+    #menu: checked ~ & > .line:nth-child(2) {
         position: absolute;
         opacity: 0;
     }
 
-    &:hover > .line:nth-child(3) {
-        transform: translateY(-10px) rotate(-45deg);
+    #menu: checked ~ & > .line:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
         background-color: red;
     }
 `;
 
 const MenuButton = () => {
     return (
-        <MenuButtonContainer>
+        <MenuButtonContainer htmlFor="menu" className="menuButton">
             <div className="line"></div>
             <div className="line"></div>
             <div className="line"></div>

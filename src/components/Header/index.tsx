@@ -18,11 +18,25 @@ const NavBar = styled.nav`
     align-items: center;
     justify-content: space-between;
     z-index: 99;
+    
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    .menuButton {
+        display: none;
+    }
 
     @media only screen and (max-width: 600px) {
+        .menuButton {
+            display: flex;
+            margin-right: 20px;
+            z-index: 1;
+        }
 
-        MenuButton:hover ~ NavBarItemsContainer {
-            display: block;
+        #menu:checked ~ .navBarItemsContainer {
+            width: 60vw;
+            transform: translateX(0);
         }
     }
 `;
@@ -42,15 +56,17 @@ const NavBarItemsContainer = styled.div`
     // Mobile CSS
 
     @media only screen and (max-width: 600px) {
-        display: none;
         position: fixed;
         top: 0;
         right: 0;
         margin-right: 0;
-        width: 50%;
+        margin-top: 70px;
+        width: 0;
         height: 100%;
         flex-direction: column;
         background-color: #eee;
+        transform: translateX(60vw);
+        transition: all ease 0.8s;
 
         a {
             display: flex;
@@ -74,8 +90,9 @@ const Header = ({ navHeight }: IPropsHeader) => {
         <header>
             <NavBar navHeight={navHeight} >
                 <LogoContainer href="#home">Portfólio</LogoContainer>
+                <input id="menu" type="checkbox" />
                 <MenuButton />
-                <NavBarItemsContainer>
+                <NavBarItemsContainer className="navBarItemsContainer">
                     <a href="#home">Home</a>
                     <a href="#about">Sobre</a>
                     <a href="#skills">Habilidades</a>
