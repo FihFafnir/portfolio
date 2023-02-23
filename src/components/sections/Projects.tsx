@@ -38,7 +38,7 @@ const ProjectsContainer = styled.section`
     .projects--description p {
         display: flex;
         align-items: center;
-        height: 32%;
+        height: 50%;
     }
 
     .projects--description a {
@@ -53,19 +53,18 @@ const ProjectsContainer = styled.section`
 
     .projects--slider {
         position: relative;
-        margin-right: 20px;
         display: flex;
         flex-direction: column;
         justify-content: end;
         align-items: center;
-        width: 60%;
+        width: 100%;
         overflow: hidden;
     }
 
     .projects--box {
         display: flex;
         position: absolute;
-        top: 25%;
+        top: 50%;
         left: 0;
         height: 120px;
         justify-content: space-between;
@@ -74,13 +73,13 @@ const ProjectsContainer = styled.section`
         height: 120px;
         padding: 20px;
         border-radius: 10px;
-        transform: translateX(350px);
+        transform: translate(350px, -60%);
         transition: transform ease 1s;
     }
 
     .projects--box:nth-child(${({ index }: IProjectsContainerProps) => index + 1}) {
         opacity: 1;
-        transform: translateX(0);
+        transform: translate(0, -60%);
     }
 
     .projects--box h1 {
@@ -97,7 +96,6 @@ const ProjectsContainer = styled.section`
     }
 
     .projects--slider .controller {
-        // border: 1px solid #f00;
         display: flex;
         justify-content: space-between;
         align-items: end;
@@ -125,8 +123,13 @@ const ProjectsContainer = styled.section`
             width: 60%;
         }
 
+        .projects--description p {
+            height: 40%;
+        }
+
         .projects--box {
             width: 200px;
+            transform: translate(280px, -60%);
         }
     }
 
@@ -160,6 +163,7 @@ const ProjectsContainer = styled.section`
             left: 50%;
             width: 80%;
             height: 170px;
+            transform: translateX(100vw);
         }
 
         .projects--box:nth-child(${({ index }: IProjectsContainerProps) => index + 1}) {
