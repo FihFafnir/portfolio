@@ -20,7 +20,7 @@ const SkillsContainer = styled.section`
     display: flex;
     align-items: center;
 
-    .skillsContent {
+    .skills--content {
         display: flex;
         width: 100%;
         justify-content: center;
@@ -119,7 +119,7 @@ const SkillsContainer = styled.section`
 const Skills = () => {
     return (
         <SkillsContainer id="skills">
-            <div className="skillsContent">
+            <div className="skills--content">
                 <div className="iconContainer">
                     <DiHtml5
                         className="icon"
