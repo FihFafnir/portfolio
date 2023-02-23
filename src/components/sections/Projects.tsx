@@ -212,7 +212,7 @@ const Projects = () => {
                 <div className="projects--description">
                     <h1>Projetos</h1>
                     <p>{projects[index].description}</p>
-                    <a href={projects[index].link} target="_blank">Ver Mais</a>
+                    <a href={projects[index].link} target="_blank" rel="noreferrer noopener">Ver Mais</a>
                 </div>
                 <div className="projects--slider">
                     <div className="projects--list">
