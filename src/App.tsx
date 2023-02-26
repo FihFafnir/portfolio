@@ -7,16 +7,16 @@ import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-const NAV_HEIGHT: number  = 70;
+const NAV_HEIGHT: number = 70;
 
 const App = () => {
     return (
         <>
             <HelmetProvider>
                 <Helmet>
-                    <meta charSet="utf-8"/>
+                    <meta charSet="utf-8" />
                     <title>Alan Mateus - Portfólio</title>
-                    <link  rel="stylesheet" href="style.css" />
+                    <link rel="stylesheet" href="style.css" />
                 </Helmet>
             </HelmetProvider>
             <Header navHeight={NAV_HEIGHT} />
@@ -29,6 +29,6 @@ const App = () => {
             </main>
         </>
     );
-}
+};
 
 export default App;

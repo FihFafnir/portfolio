@@ -3,10 +3,6 @@ import styled from "styled-components";
 import Description from "./Description";
 import Slider from "./Slider";
 
-interface IProjectsContainerProps {
-    index: number;
-}
-
 const ProjectsContainer = styled.section`
     display: flex;
     justify-content: center;
@@ -21,96 +17,6 @@ const ProjectsContainer = styled.section`
         border-radius: 15px;
     }
 
-    .projects--slider {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-        align-items: center;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .projects--box {
-        display: flex;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        height: 120px;
-        justify-content: space-between;
-        background-color: #fff;
-        width: 280px;
-        height: 120px;
-        padding: 20px;
-        border-radius: 10px;
-        transform: translate(350px, -60%);
-        transition: transform ease 1s;
-    }
-
-    .projects--box:nth-child(
-            ${({ index }: IProjectsContainerProps) => index + 1}
-        ) {
-        opacity: 1;
-        transform: translate(0, -60%);
-    }
-
-    .projects--box h1 {
-        font-size: 20px;
-        width: 80%;
-    }
-
-    .projects--box .iconContainer {
-        margin-top: 20px;
-        background-color: #000;
-        border-radius: 50%;
-        width: 32px;
-        height: 32px;
-    }
-
-    .projects--slider .controller {
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
-        padding-bottom: 50px;
-        width: 280px;
-        height: 30%;
-    }
-
-    .projects--slider .controller button {
-        border: none;
-        cursor: pointer;
-    }
-
-    .projects--slider .controller span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 32px;
-    }
-
-    @media screen and (max-width: 1024px) {
-        .projects--description p {
-            height: 40%;
-        }
-    }
-
-    // Tablet CSS
-
-    @media screen and (max-width: 768px) {
-        .projects--description {
-            width: 60%;
-        }
-
-        .projects--description p {
-            height: 32%;
-        }
-
-        .projects--box {
-            width: 200px;
-            transform: translate(280px, -60%);
-        }
-    }
-
     // Mobile CSS
 
     @media screen and (max-width: 600px) {
@@ -118,36 +24,6 @@ const ProjectsContainer = styled.section`
             height: 80vh;
             flex-direction: column;
             align-items: center;
-        }
-
-        .projects--description {
-            width: 80%;
-            align-items: center;
-            text-align: center;
-        }
-
-        .projects--description h1 {
-            margin-bottom: 30px;
-        }
-
-        .projects--slider {
-            width: 100%;
-            height: 50%;
-            margin: 0;
-        }
-
-        .projects--box {
-            top: 0;
-            left: 50%;
-            width: 80%;
-            height: 170px;
-            transform: translateX(100vw);
-        }
-
-        .projects--box:nth-child(
-                ${({ index }: IProjectsContainerProps) => index + 1}
-            ) {
-            transform: translateX(-50%);
         }
     }
 `;
@@ -164,13 +40,13 @@ const Projects = () => {
             title: "Solution Preparation Calculator in React and TS",
             description:
                 "This web application shortens the chemist's work by making the calculation for the preparation of a solution through the calculations of concentration, purity - and if the target solution is liquid - density.",
-            link: "https://github.com/FihFafnir/SPC-in-react-and-ts",
+            link: "https://github.com/FihFafnir/SPC-in-react-and-ts"
         },
         {
             title: "Em Breve...",
             description: "",
-            link: "https://github.com/FihFafnir/",
-        },
+            link: "https://github.com/FihFafnir/"
+        }
     ];
 
     const [index, setIndex] = useState(0);
@@ -185,23 +61,8 @@ const Projects = () => {
         }
     };
 
-    const ProjectList = () => {
-        return (
-            <div className="projects--list">
-                <div className="projects--box">
-                    <h1>{projects[0].title}</h1>
-                    <div className="iconContainer"></div>
-                </div>
-                <div className="projects--box">
-                    <h1>{projects[1].title}</h1>
-                    <div className="iconContainer"></div>
-                </div>
-            </div>
-        );
-    };
-
     return (
-        <ProjectsContainer id="projects" index={index}>
+        <ProjectsContainer id="projects">
             <div className="projects--content">
                 <Description index={index} projects={projects} />
                 <Slider
