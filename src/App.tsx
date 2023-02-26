@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "./components/Header";
-import Home from "./components/sections/Home";
 import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
@@ -19,9 +18,8 @@ const App = () => {
                     <link rel="stylesheet" href="style.css" />
                 </Helmet>
             </HelmetProvider>
-            <Header navHeight={NAV_HEIGHT} />
+            <Header />
             <main>
-                <Home paddingTop={NAV_HEIGHT} />
                 <About paddingTop={NAV_HEIGHT} />
                 <Skills />
                 <Projects />
