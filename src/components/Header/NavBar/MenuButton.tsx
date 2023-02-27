@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+interface IMenuButtonProps {
+    black: boolean;
+}
+
 const MenuButtonContainer = styled.label`
     position: relative;
     display: flex;
@@ -15,7 +19,7 @@ const MenuButtonContainer = styled.label`
         width: 24px;
         height: 3px;
         border-radius: 3px;
-        background-color: #000;
+        background-color: ${({ black }: IMenuButtonProps) => black ? "#fff" : "#000"};
         transition: all ease 0.6s;
     }
 
@@ -39,9 +43,9 @@ const MenuButtonContainer = styled.label`
     }
 `;
 
-const MenuButton = () => {
+const MenuButton = ({ black }: IMenuButtonProps) => {
     return (
-        <MenuButtonContainer htmlFor="menu" className="menuButton">
+        <MenuButtonContainer htmlFor="menu" className="menuButton" black={black}>
             <div className="line"></div>
             <div className="line"></div>
             <div className="line"></div>

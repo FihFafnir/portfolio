@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
 import MenuButton from "./MenuButton";
 import NavBarItems from "./NavBarItems";
 import { BlurredBackground } from "../../GenericComponents";
 
+interface INavBarContainerProps {
+    black: boolean;
+}
+
 const NavBarContainer = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #fff;
+    background-color: ${({ black }: INavBarContainerProps) => black ? "#000" : "#fff"};
     width: 100%;
     height: 70px;
     display: flex;
@@ -33,8 +37,11 @@ const NavBarContainer = styled.div`
         }
 
         #menu:checked ~ .navBar--itemsContainer {
-            width: 100vw;
-            transform: translateX(0);
+            height: 100vh;
+        }
+
+        #menu:checked ~ .navBar--itemsContainer > a {
+            transform: translateY(0);
         }
 
         #menu:checked ~ .blurredBackground {
@@ -45,17 +52,42 @@ const NavBarContainer = styled.div`
 `;
 
 const NavBar = () => {
+    const [navBarBlack, setNavBarBlack] = useState(true);
     const [menuChecked, setMenuChecked] = useState(false);
+    const [currentSection, setCurrentSection] = useState("#home");
 
+    useEffect(() => {
+        const scrollListener = () => {
+            if (window.scrollY > window.innerHeight) {
+                setCurrentSection("#about");
+            }
+
+            if (window.scrollY > 10) {
+                setNavBarBlack(false);
+            } else {
+                setNavBarBlack(true);
+            }
+        }
+
+        window.addEventListener("scroll", scrollListener);
+
+        return () => {
+            window.removeEventListener("scroll", scrollListener);
+        }
+    });
 
     return (
-        <NavBarContainer>
-            <Logo />
+        <NavBarContainer black={navBarBlack}>
+            <Logo black={navBarBlack} />
             <input id="menu" type="checkbox" onChange={() => {
                 setMenuChecked(() => !menuChecked);
             }} checked={menuChecked} />
-            <MenuButton />
-            <NavBarItems setMenuChecked={setMenuChecked} />
+            <MenuButton black={navBarBlack} />
+            <NavBarItems
+                setMenuChecked={setMenuChecked}
+                black={navBarBlack}
+                currentSection={currentSection}
+            />
             <BlurredBackground htmlFor="menu" />
         </NavBarContainer>
     );

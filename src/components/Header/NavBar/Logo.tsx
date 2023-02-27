@@ -1,16 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
+interface ILogoProps {
+    black: boolean;
+}
 
 const LogoContainer = styled.a`
     margin-left: 20px;
-    color: #000;
+    color: ${({ black }: ILogoProps) => black ? "#fff" : "#000"};
     text-decoration: none;
+    font-weight: bolder;
 `;
 
-const Logo = () => {
+const Logo = ({ black }: ILogoProps) => {
     return (
-        <LogoContainer href="#home">Portfólio</LogoContainer>
+        <LogoContainer href="#home" black={black}>Portfólio</LogoContainer>
     );
 }
 

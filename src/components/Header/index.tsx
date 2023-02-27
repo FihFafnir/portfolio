@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
 import NavBar from "./NavBar";
 import Home from "./Home";
 
