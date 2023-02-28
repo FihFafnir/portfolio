@@ -57,16 +57,17 @@ const NavBar = () => {
     const [currentSection, setCurrentSection] = useState("#home");
 
     useEffect(() => {
-        const scrollListener = () => {
-            if (window.scrollY > window.innerHeight) {
-                setCurrentSection("#about");
-            }
+        const getElementY = (selector: string):number => {
+            const element: HTMLElement | null = document.querySelector(selector)
+            return element?.offsetTop || 0;
+        }
 
-            if (window.scrollY > 10) {
-                setNavBarBlack(false);
-            } else {
-                setNavBarBlack(true);
-            }
+        const scrollListener = () => {
+            const sectionSelectors = ["#about", "#skills", "#projects"];
+            const currentSectionSelector = sectionSelectors.filter((section) => window.scrollY >= getElementY(section) - 20).reverse()[0];
+            setCurrentSection(currentSectionSelector || "#home");
+
+            setNavBarBlack(window.scrollY > 10 ? false : true);
         }
 
         window.addEventListener("scroll", scrollListener);

@@ -11,16 +11,21 @@ const DescriptionContainer = styled.div`
     padding: 30px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 30%;
+    border: 1px solid #f00;
+    font-size: 1.6px;
 
     h1 {
         margin-bottom: 15px;
+        font-size: 20em;
     }
 
     p {
         display: flex;
         align-items: center;
         height: 30%;
+        font-size: 10em;
     }
 
     a {
@@ -57,7 +62,7 @@ const DescriptionContainer = styled.div`
         border: 1px solid #000;
         align-items: center;
         text-align: center;
-    
+
         h1 {
             margin-bottom: 30px;
         }

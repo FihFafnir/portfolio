@@ -11,6 +11,7 @@ const NavBarItemsContainer = styled.div`
     margin-right: 20px;
 
     a {
+        font-size: 16rem;
         position: relative;
         height: 100%;
         color: ${({ black }: INavBarItemsContainerProps) => black ? "#fff" : "#000"};
@@ -22,7 +23,8 @@ const NavBarItemsContainer = styled.div`
     a[href=${({ currentSection }: INavBarItemsContainerProps) => '"' + currentSection + '"'}]::after {
         content: "";
         position: absolute;
-        top: 45px;
+        top: 20px;
+        left: 0;
         width: 30px;
         height: 3px;
         border-radius: 10px;
@@ -41,7 +43,7 @@ const NavBarItemsContainer = styled.div`
         height: 0;
         flex-direction: column;
         transition: all ease 0.8s;
-        
+
         a {
             display: flex;
             background-color: ${({ black }: INavBarItemsContainerProps) => black ? "#000" : "#fff"};
@@ -51,6 +53,20 @@ const NavBarItemsContainer = styled.div`
             margin: 0;
             transform: translateY(-100vh);
             transition: all ease 0.8s;
+        }
+
+        a::before {
+            position: absolute;
+            content: "";
+            background-color: ${({ black }: INavBarItemsContainerProps) => black ? "#000" : "#fff"};
+            width: 100vw;
+            height: 75px;
+            z-index: -5;
+        }
+
+        a[href=${({ currentSection }: INavBarItemsContainerProps) => '"' + currentSection + '"'}]::after {
+            top: 45px;
+            left: auto;
         }
     }
 `;

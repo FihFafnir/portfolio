@@ -6,6 +6,7 @@ interface ILogoProps {
 }
 
 const LogoContainer = styled.a`
+    font-size: 20rem;
     margin-left: 20px;
     color: ${({ black }: ILogoProps) => black ? "#fff" : "#000"};
     text-decoration: none;

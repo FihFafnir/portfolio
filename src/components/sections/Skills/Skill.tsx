@@ -12,7 +12,7 @@ const SkillContainer = styled.div`
     height: 16vw;
     margin: -15px -10px 15px -10px;
     transform: scale(.60);
-    transition: all ease 1s;            
+    transition: all ease 0.8s;
     border-radius: 5px;
 
     &:hover {
@@ -25,7 +25,7 @@ const SkillContainer = styled.div`
     }
 
     .icon {
-        transition: transform ease 1s;
+        transition: transform ease 0.8s;
     }
 
     &:hover > .icon {
@@ -36,7 +36,7 @@ const SkillContainer = styled.div`
         position: absolute;
         top: 120px;
         text-align: justify;
-        font-size: 11pt;
+        font-size: 15rem;
         width: 80%;
         height: 0;
         opacity: 0;

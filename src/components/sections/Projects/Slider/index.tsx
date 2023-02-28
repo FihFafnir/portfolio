@@ -39,27 +39,6 @@ const SliderContainer = styled.div`
         transition: transform ease 1s;
 	}
 
-    .controller {
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
-        padding-bottom: 50px;
-        width: 280px;
-        height: 30%;
-    }
-
-    .controller button {
-        border: none;
-        cursor: pointer;
-    }
-
-    .controller span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 32px;
-    }
-
     // Tablet CSS
 
     @media screen and (max-width: 768px) {
@@ -73,7 +52,7 @@ const SliderContainer = styled.div`
         width: 100%;
         height: 50%;
         margin: 0;
-        
+
 
         .projects--box {
             top: 0;
