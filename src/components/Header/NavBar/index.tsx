@@ -15,7 +15,7 @@ const NavBarContainer = styled.div`
     left: 0;
     background-color: ${({ black }: INavBarContainerProps) => black ? "#000" : "#fff"};
     width: 100%;
-    height: 70px;
+    height: 70rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -32,7 +32,7 @@ const NavBarContainer = styled.div`
     @media only screen and (max-width: 600px) {
         .menuButton {
             display: flex;
-            margin-right: 20px;
+            margin-right: 20rem;
             z-index: 1;
         }
 
@@ -64,7 +64,7 @@ const NavBar = () => {
 
         const scrollListener = () => {
             const sectionSelectors = ["#about", "#skills", "#projects"];
-            const currentSectionSelector = sectionSelectors.filter((section) => window.scrollY >= getElementY(section) - 20).reverse()[0];
+            const currentSectionSelector = sectionSelectors.filter((section) => window.scrollY >= getElementY(section) - window.innerHeight * 0.5).reverse()[0];
             setCurrentSection(currentSectionSelector || "#home");
 
             setNavBarBlack(window.scrollY > 10 ? false : true);

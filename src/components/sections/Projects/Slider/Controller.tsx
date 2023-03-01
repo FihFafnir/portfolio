@@ -16,8 +16,8 @@ const ControllerContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: end;
-    padding-bottom: 50px;
-    width: 280px;
+    padding-bottom: 50rem;
+    width: 280rem;
     height: 30%;
 
     button {
@@ -30,7 +30,7 @@ const ControllerContainer = styled.div`
         justify-content: center;
         align-items: center;
         font-size: 16rem;
-        height: 32px;
+        height: 32rem;
     }
 `;
 
@@ -38,11 +38,11 @@ const Controller = ({ index, indexHandler, projects }: IControllerProps) => {
     return (
         <ControllerContainer>
             <button onClick={() => indexHandler("previous")}>
-                <GrFormPrevious size="32px" />
+                <GrFormPrevious size="32rem" />
             </button>
             <span>{index + 1}/{projects.length}</span>
             <button onClick={() => indexHandler("next")}>
-                <GrFormNext size="32px" />
+                <GrFormNext size="32rem" />
             </button>
         </ControllerContainer>
     );

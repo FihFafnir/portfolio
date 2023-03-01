@@ -23,36 +23,10 @@ const SliderContainer = styled.div`
     width: 100%;
 	overflow: hidden;
 
-    .projects--box {
-        display: flex;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        height: 120px;
-        justify-content: space-between;
-        background-color: #fff;
-        width: 280px;
-        height: 120px;
-        padding: 20px;
-        border-radius: 10px;
-        transform: translate(350px, -60%);
-        transition: transform ease 1s;
-	}
-
-    // Tablet CSS
-
-    @media screen and (max-width: 768px) {
-        .projects--box {
-            width: 200px;
-            transform: translate(280px, -60%);
-        }
-    }
-
     @media screen and (max-width: 600px) {
         width: 100%;
         height: 50%;
         margin: 0;
-
 
         .projects--box {
             top: 0;

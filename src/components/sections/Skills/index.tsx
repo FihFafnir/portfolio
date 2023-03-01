@@ -19,7 +19,14 @@ const SkillsContainer = styled.section`
     position: relative;
     height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+        font-size: 35rem;
+        text-align: center;
+        margin-bottom: 30px;
+    }
 
     .skills--content {
         display: flex;
@@ -43,6 +50,7 @@ const SkillsContainer = styled.section`
 const Skills = () => {
     return (
         <SkillsContainer id="skills" >
+            <h1>Habilidades</h1>
             <div className="skills--content">
                 <Skill description="HTML (Hypertext Markup Language) é uma linguagem de marcação usada para criar a estrutura e conteúdo de páginas da web.">
                     <DiHtml5

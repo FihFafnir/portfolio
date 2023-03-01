@@ -8,34 +8,33 @@ interface IDescriptionProps {
 }
 
 const DescriptionContainer = styled.div`
-    padding: 30px;
+    padding: 40rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 30%;
-    border: 1px solid #f00;
-    font-size: 1.6px;
 
     h1 {
-        margin-bottom: 15px;
-        font-size: 20em;
+        margin-bottom: 20rem;
+        font-size: 35rem;
     }
 
     p {
         display: flex;
         align-items: center;
         height: 30%;
-        font-size: 10em;
+        font-size: 20rem;
     }
 
     a {
-        margin-top: 30px;
+        margin-top: 25rem;
         width: fit-content;
-        border-radius: 20px;
-        padding: 10px 15px 10px 15px;
+        border-radius: 20rem;
+        padding: 10rem 15rem 10rem 15rem;
         background-color: #111;
         color: #eee;
         text-decoration: none;
+        font-size: 20rem;
     }
 
     @media screen and (max-width: 1024px) {
@@ -85,6 +84,7 @@ const Description = ({ index, projects }: IDescriptionProps) => {
             >
                 Ver Mais
             </a>
+
         </DescriptionContainer>
     );
 };

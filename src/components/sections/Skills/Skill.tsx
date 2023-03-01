@@ -18,7 +18,7 @@ const SkillContainer = styled.div`
     &:hover {
         background-color: #333;
         transform: scale(1);
-        height: 340px;
+        height: 340rem;
         color: #eee;
         box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
         z-index: 3;
@@ -29,12 +29,12 @@ const SkillContainer = styled.div`
     }
 
     &:hover > .icon {
-        transform: translateY(-90px);
+        transform: translateY(-90rem);
     }
 
     p {
         position: absolute;
-        top: 120px;
+        top: 130rem;
         text-align: justify;
         font-size: 15rem;
         width: 80%;
@@ -43,7 +43,7 @@ const SkillContainer = styled.div`
     }
 
     &:hover > p {
-        height: min-content;
+        height: 200rem;
         opacity: 1;
         transition: opacity 1s ease 0.5s;
     }

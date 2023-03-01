@@ -4,6 +4,7 @@ import styled from "styled-components";
 const BlurredBackgroundContainer = styled.label`
     position: fixed;
     top: 70px;
+    left: 0;
     width: 100vw;
     height: 100vh;
     opacity: 0;
