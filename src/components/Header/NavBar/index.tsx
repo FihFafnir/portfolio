@@ -64,7 +64,7 @@ const NavBar = () => {
 
         const scrollListener = () => {
             const sectionSelectors = ["#about", "#skills", "#projects"];
-            const currentSectionSelector = sectionSelectors.filter((section) => window.scrollY >= getElementY(section) - window.innerHeight * 0.5).reverse()[0];
+            const currentSectionSelector = sectionSelectors.filter((section) => window.scrollY >= getElementY(section) - window.innerHeight * 0.4).reverse()[0];
             setCurrentSection(currentSectionSelector || "#home");
 
             setNavBarBlack(window.scrollY > 10 ? false : true);
