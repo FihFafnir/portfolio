@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Img from "./Img";
 
 const HomeContainer = styled.section`
     background-color: #000;
@@ -22,8 +23,9 @@ const Home = () => {
                 <h1>Alan Mateus.</h1>
                 <p>Desenvolvedor Front-Web</p>
             </div>
+            <Img src="assets/fafnir.png" />
         </HomeContainer>
     );
-}
+};
 
 export default Home;
