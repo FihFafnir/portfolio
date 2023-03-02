@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { IProject } from "../Projects";
+import { Title } from "../../GenericComponents";
 
 interface IDescriptionProps {
     index: number;
@@ -16,7 +17,6 @@ const DescriptionContainer = styled.div`
 
     h1 {
         margin-bottom: 20rem;
-        font-size: 35rem;
     }
 
     p {
@@ -75,7 +75,7 @@ const DescriptionContainer = styled.div`
 const Description = ({ index, projects }: IDescriptionProps) => {
     return (
         <DescriptionContainer className="projects--description">
-            <h1>Projetos</h1>
+            <Title>Projetos</Title>
             <p>{projects[index].description}</p>
             <a
                 href={projects[index].link}

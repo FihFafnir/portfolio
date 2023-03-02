@@ -11,7 +11,7 @@ import {
     DiGithubBadge
 } from "react-icons/di";
 import { SiTypescript, SiStyledcomponents } from "react-icons/si";
-import { BlurredBackground } from "../../GenericComponents";
+import { Title, BlurredBackground } from "../../GenericComponents";
 
 const ICON_SIZE: number = 64;
 
@@ -23,7 +23,6 @@ const SkillsContainer = styled.section`
     justify-content: center;
 
     h1 {
-        font-size: 35rem;
         text-align: center;
         margin-bottom: 30px;
     }
@@ -50,7 +49,7 @@ const SkillsContainer = styled.section`
 const Skills = () => {
     return (
         <SkillsContainer id="skills" >
-            <h1>Habilidades</h1>
+            <Title>Habilidades</Title>
             <div className="skills--content">
                 <Skill description="HTML (Hypertext Markup Language) é uma linguagem de marcação usada para criar a estrutura e conteúdo de páginas da web.">
                     <DiHtml5

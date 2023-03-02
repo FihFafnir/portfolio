@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+// BlurredBackground
+
 const BlurredBackgroundContainer = styled.label`
     position: fixed;
     top: 70px;
@@ -25,6 +27,24 @@ const BlurredBackground = ({ htmlFor }: IBlurredBackgroundProps) => {
     );
 }
 
+// Title
+
+const TitleContainer = styled.h1`
+    font-size: 35rem;
+    font-weight: 900;
+`;
+
+interface ITitleProps {
+    children: string;
+}
+
+const Title = ({ children }: ITitleProps) => {
+    return (
+        <TitleContainer>{ children }</TitleContainer>
+    );
+}
+
 export {
-    BlurredBackground
+    BlurredBackground,
+    Title
 }

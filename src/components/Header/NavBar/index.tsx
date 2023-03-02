@@ -13,7 +13,7 @@ const NavBarContainer = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    background-color: ${({ black }: INavBarContainerProps) => black ? "#000" : "#fff"};
+    background-color: rgba(255, 255, 255, ${({ black }: INavBarContainerProps) => black ? "0" : "1"});
     width: 100%;
     height: 70rem;
     display: flex;

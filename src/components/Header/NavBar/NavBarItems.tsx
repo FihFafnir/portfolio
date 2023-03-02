@@ -17,7 +17,11 @@ const NavBarItemsContainer = styled.div`
         color: ${({ black }: INavBarItemsContainerProps) => black ? "#fff" : "#000"};
         text-decoration: none;
         margin: 10rem;
-        font-weight: bold;
+        font-weight: 500;
+    }
+
+    a[href=${({ currentSection }: INavBarItemsContainerProps) => '"' + currentSection + '"'}] {
+        font-weight: 900;
     }
 
     a[href=${({ currentSection }: INavBarItemsContainerProps) => '"' + currentSection + '"'}]::after {

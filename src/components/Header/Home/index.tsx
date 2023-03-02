@@ -1,29 +1,45 @@
 import React from "react";
 import styled from "styled-components";
+import { Title } from "../../GenericComponents";
+import Terminal from "./Terminal";
 import Img from "./Img";
 
 const HomeContainer = styled.section`
     background-color: #000;
+    box-shadow: 0px 2px 10px 1px rgba(0,0,0,.9);
     color: #fff;
     padding-top: 70px;
     height: 100vh;
     display: flex;
     justify-content: center;
 
-    div {
-        margin-top: 50px;
+    .text {
+        width: 20%;
+        z-index: 1;
+        height: 100px;
+        margin: 200rem 0rem 0rem 100rem;
+    }
+
+    h1 {
+        font-size: 45rem;
+    }
+
+    p {
+        font-size: 20em;
+        font-weight: bold;
     }
 `;
 
 const Home = () => {
     return (
         <HomeContainer id="home">
-            <div>
-                <h2>Olá, meu nome é</h2>
-                <h1>Alan Mateus.</h1>
-                <p>Desenvolvedor Front-Web</p>
+            <div className="text">
+                <p>Olá, meu nome é</p>
+                <Title>Alan Mateus</Title>
+                <p>Desenvolvedor Front-end</p>
             </div>
-            <Img src="assets/fafnir.png" />
+            <Terminal></Terminal>
+            <Img />
         </HomeContainer>
     );
 };
