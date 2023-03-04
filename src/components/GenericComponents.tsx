@@ -40,7 +40,7 @@ interface ITitleProps {
 
 const Title = ({ children }: ITitleProps) => {
     return (
-        <TitleContainer>{ children }</TitleContainer>
+        <TitleContainer>{children}</TitleContainer>
     );
 }
 

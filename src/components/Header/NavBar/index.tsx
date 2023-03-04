@@ -45,6 +45,7 @@ const NavBarContainer = styled.div`
         }
 
         #menu:checked ~ .blurredBackground {
+            ${({ black }: INavBarContainerProps) => black && "top: 0;"}
             transform: translateX(0);
             opacity: 1;
         }
@@ -57,7 +58,7 @@ const NavBar = () => {
     const [currentSection, setCurrentSection] = useState("#home");
 
     useEffect(() => {
-        const getElementY = (selector: string):number => {
+        const getElementY = (selector: string): number => {
             const element: HTMLElement | null = document.querySelector(selector)
             return element?.offsetTop || 0;
         }

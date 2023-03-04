@@ -50,7 +50,7 @@ const NavBarItemsContainer = styled.div`
 
         a {
             display: flex;
-            background-color: ${({ black }: INavBarItemsContainerProps) => black ? "#000" : "#fff"};
+            background-color: rgba(255, 255, 255, ${({ black }: INavBarItemsContainerProps) => black ? "0" : "1"});
             align-items: center;
             justify-content: center;
             height: 70rem;
@@ -62,7 +62,7 @@ const NavBarItemsContainer = styled.div`
         a::before {
             position: absolute;
             content: "";
-            background-color: ${({ black }: INavBarItemsContainerProps) => black ? "#000" : "#fff"};
+            background-color: rgba(255, 255, 255, ${({ black }: INavBarItemsContainerProps) => black ? "0" : "1"});
             width: 100vw;
             height: 75rem;
             z-index: -5;

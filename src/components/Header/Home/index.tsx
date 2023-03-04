@@ -17,7 +17,7 @@ const HomeContainer = styled.section`
         width: 20%;
         z-index: 1;
         height: 100px;
-        margin: 200rem 0rem 0rem 100rem;
+        margin: 200rem 0rem 0rem 50rem;
     }
 
     h1 {
@@ -27,6 +27,14 @@ const HomeContainer = styled.section`
     p {
         font-size: 20em;
         font-weight: bold;
+    }
+
+    // Mobile CSS
+
+    @media only screen and (max-width: 600px) {
+        .text {
+            width: 100%;
+        }
     }
 `;
 

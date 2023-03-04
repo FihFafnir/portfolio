@@ -14,12 +14,22 @@ const ImgContainer = styled.div`
         border-radius: 0 0 0 30%;
         box-shadow: 0px 0px 50px 5px rgba(255,255,255,.3);
     }
+
+    // Mobile CSS
+
+    @media only screen and (max-width: 600px) {
+        top: 120px; 
+        right: 20px;
+        img {
+            border-radius: 30%;
+        }
+    }
 `;
 
 const Img = () => {
     return (
         <ImgContainer>
-            <img src="assets/fafnir.png" alt=""/>
+            <img src="assets/fafnir.png" alt="" />
         </ImgContainer>
     );
 }
