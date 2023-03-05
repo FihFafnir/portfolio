@@ -1,10 +1,9 @@
-import React from "react";
 import styled from "styled-components";
+import { box } from "../../../GenericStyles";
 
 const SkillContainer = styled.div`
     position: relative;
-    display: flex;
-    justify-content: center;
+    ${box}
     align-items: center;
     flex-wrap: wrap;
     background-color: #ddd;
@@ -75,16 +74,4 @@ const SkillContainer = styled.div`
     }
 `;
 
-interface ISkillProps {
-    description: string;
-    children: JSX.Element;
-}
-
-const Skill = ({ description, children }: ISkillProps) => (
-    <SkillContainer>
-        {children}
-        <p>{description}</p>
-    </SkillContainer>
-);
-
-export default Skill;
+export default SkillContainer;

@@ -6,8 +6,6 @@ import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-const NAV_HEIGHT: number = 70;
-
 const App = () => {
     return (
         <>
@@ -20,10 +18,10 @@ const App = () => {
             </HelmetProvider>
             <Header />
             <main>
-                <About paddingTop={NAV_HEIGHT} />
+                <About />
                 <Skills />
                 <Projects />
-                <Contact paddingTop={NAV_HEIGHT} />
+                <Contact />
             </main>
         </>
     );

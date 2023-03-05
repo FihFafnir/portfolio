@@ -1,21 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-interface IPropsContact {
-    paddingTop: number;
-}
-
 const ContactContainer = styled.section`
-    padding-top: ${({ paddingTop }: IPropsContact) => paddingTop}px;
+    padding-top: 70px;
     height: 100vh;
 `;
 
-const Contact = ({ paddingTop }: IPropsContact) => {
+const Contact = () => {
     return (
-        <ContactContainer id="contact" paddingTop={paddingTop}>
+        <ContactContainer id="contact">
         </ContactContainer>
     );
 }
 
 export default Contact;
-

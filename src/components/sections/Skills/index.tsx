@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Skill from "./Skill";
 import {
     DiHtml5,
@@ -11,45 +10,14 @@ import {
     DiGithubBadge
 } from "react-icons/di";
 import { SiTypescript, SiStyledcomponents } from "react-icons/si";
-import { Title, BlurredBackground } from "../../GenericComponents";
+import SkillsContainer from "./styles";
 
 const ICON_SIZE: number = 64;
-
-const SkillsContainer = styled.section`
-    position: relative;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    h1 {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .skills--content {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .blurredBackground {
-        z-index: 1;
-    }
-
-    // Tablet CSS
-
-    @media only screen and (max-width: 768px) {
-        height: 100%;
-        padding-top: 120px;
-    }
-`;
 
 const Skills = () => {
     return (
         <SkillsContainer id="skills" >
-            <Title>Habilidades</Title>
+            <h1>Habilidades</h1>
             <div className="skills--content">
                 <Skill description="HTML (Hypertext Markup Language) é uma linguagem de marcação usada para criar a estrutura e conteúdo de páginas da web.">
                     <DiHtml5
@@ -113,7 +81,7 @@ const Skills = () => {
                         size={ICON_SIZE + "rem"}
                     />
                 </Skill>
-                <BlurredBackground />
+                <div className="blurredBackground"></div>
             </div>
         </SkillsContainer>
     );

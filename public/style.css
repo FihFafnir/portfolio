@@ -12,6 +12,7 @@ html {
 
 body {
     background-color: #f8f8f8;
+    scroll-snap-type: y mandatory; 
 }
 
 @media screen and (max-width: 1440px) {

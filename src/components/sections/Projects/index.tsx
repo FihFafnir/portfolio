@@ -2,31 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Description from "./Description";
 import Slider from "./Slider";
-
-const ProjectsContainer = styled.section`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-
-    .projects--content {
-        display: flex;
-        width: 90%;
-        height: 60vh;
-        background-color: #ededed;
-        border-radius: 15px;
-    }
-
-    // Mobile CSS
-
-    @media screen and (max-width: 600px) {
-        .projects--content {
-            height: 80vh;
-            flex-direction: column;
-            align-items: center;
-        }
-    }
-`;
+import ProjectsContainer from "./styles";
 
 export interface IProject {
     title: string;

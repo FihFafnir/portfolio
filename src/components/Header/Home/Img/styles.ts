@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const ImgContainer = styled.div`
@@ -18,7 +17,7 @@ const ImgContainer = styled.div`
     // Mobile CSS
 
     @media only screen and (max-width: 600px) {
-        top: 120px; 
+        top: 120px;
         right: 20px;
         img {
             border-radius: 30%;
@@ -26,12 +25,4 @@ const ImgContainer = styled.div`
     }
 `;
 
-const Img = () => {
-    return (
-        <ImgContainer>
-            <img src="assets/fafnir.png" alt="" />
-        </ImgContainer>
-    );
-}
-
-export default Img;
+export default ImgContainer;

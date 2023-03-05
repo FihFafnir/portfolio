@@ -1,11 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-import { IProject } from "../../Projects";
-
-interface IListProps {
-    index: number;
-    projects: IProject[];
-}
 
 interface IListContainerProps {
     index: number;
@@ -72,19 +65,4 @@ const ListContainer = styled.div`
     }
 `;
 
-const List = ({ index, projects }: IListProps) => {
-    return (
-        <ListContainer className="projects--list" index={index}>
-            <div className="projects--box">
-                <h1>{projects[0].title}</h1>
-                <div className="iconContainer"></div>
-            </div>
-            <div className="projects--box">
-                <h1>{projects[1].title}</h1>
-                <div className="iconContainer"></div>
-            </div>
-        </ListContainer>
-    );
-}
-
-export default List;
+export default ListContainer;

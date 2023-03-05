@@ -1,21 +1,14 @@
-import React from "react";
 import styled from "styled-components";
-import { IProject } from "../Projects";
-import { Title } from "../../GenericComponents";
-
-interface IDescriptionProps {
-    index: number;
-    projects: IProject[];
-}
+import { title, box } from "../../../GenericStyles";
 
 const DescriptionContainer = styled.div`
+    ${box}
     padding: 40rem;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 30%;
 
     h1 {
+        ${title}
         margin-bottom: 20rem;
     }
 
@@ -72,21 +65,4 @@ const DescriptionContainer = styled.div`
     }
 `;
 
-const Description = ({ index, projects }: IDescriptionProps) => {
-    return (
-        <DescriptionContainer className="projects--description">
-            <Title>Projetos</Title>
-            <p>{projects[index].description}</p>
-            <a
-                href={projects[index].link}
-                target="_blank"
-                rel="noreferrer noopener"
-            >
-                Ver Mais
-            </a>
-
-        </DescriptionContainer>
-    );
-};
-
-export default Description;
+export default DescriptionContainer;
