@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { blurredBackground } from "../../GenericStyles";
+import { blurredBackground } from "../../styles";
 
 interface INavBarContainerProps {
     black: boolean;

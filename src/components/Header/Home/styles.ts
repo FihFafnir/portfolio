@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { section, title, applyInDevices } from "../../GenericStyles";
+import { section, title, applyInDevices } from "../../styles";
 
 const HomeContainer = styled.section`
     ${section}

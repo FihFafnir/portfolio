@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { applyInDevices } from "../../../styles";
 
 const ImgContainer = styled.div`
     position: absolute;
@@ -16,12 +17,14 @@ const ImgContainer = styled.div`
 
     // Mobile CSS
 
-    @media only screen and (max-width: 600px) {
-        top: 120px;
-        right: 20px;
-        img {
-            border-radius: 30%;
-        }
+    ${
+        applyInDevices(600, `
+            top: 120px;
+            right: 20px;
+            img {
+                border-radius: 30%;
+            }
+        `)
     }
 `;
 

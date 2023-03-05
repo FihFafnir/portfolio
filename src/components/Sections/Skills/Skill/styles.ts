@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { box } from "../../../GenericStyles";
+import { box } from "../../../styles";
 
 const SkillContainer = styled.div`
     position: relative;

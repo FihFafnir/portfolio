@@ -1,10 +1,8 @@
 import React from "react";
-import Header from "./components/Header";
-import About from "./components/sections/About";
-import Skills from "./components/sections/Skills";
-import Projects from "./components/sections/Projects";
-import Contact from "./components/sections/Contact";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import Header from "./components/Header";
+import Sections from "./components/Sections";
+import Footer from "./components/Footer";
 
 const App = () => {
     return (
@@ -17,12 +15,8 @@ const App = () => {
                 </Helmet>
             </HelmetProvider>
             <Header />
-            <main>
-                <About />
-                <Skills />
-                <Projects />
-                <Contact />
-            </main>
+            <Sections />
+            <Footer />
         </>
     );
 };

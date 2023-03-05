@@ -1,10 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-
-const ContactContainer = styled.section`
-    padding-top: 70px;
-    height: 100vh;
-`;
+import ContactContainer from "./styles";
 
 const Contact = () => {
     return (

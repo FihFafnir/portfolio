@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { title, box, section, blurredBackground } from "../../GenericStyles";
+import { title, box, section, blurredBackground } from "../../styles";
 
 
 const SkillsContainer = styled.section`

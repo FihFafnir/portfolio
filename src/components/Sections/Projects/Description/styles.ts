@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { title, box } from "../../../GenericStyles";
+import { title, box } from "../../../styles";
 
 const DescriptionContainer = styled.div`
     ${box}

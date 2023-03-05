@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import Description from "./Description";
 import Slider from "./Slider";
 import ProjectsContainer from "./styles";
