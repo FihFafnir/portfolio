@@ -7,10 +7,10 @@ const SkillContainer = styled.div`
     align-items: center;
     flex-wrap: wrap;
     background-color: #ddd;
-    width: 16%;
+    width: 16vw;
     height: 16vw;
     margin: -15px -10px 15px -10px;
-    transform: scale(.60);
+    transform: scale(.6);
     transition: all ease 0.8s;
     border-radius: 5px;
 
@@ -55,21 +55,21 @@ const SkillContainer = styled.div`
     // Laptop CSS
 
     @media only screen and (max-width: 992px) {
-        width: 25%;
+        width: 25vw;
         height: 25vw;
     }
 
     // Tablet CSS
 
     @media only screen and (max-width: 768px) {
-        width: 33%;
+        width: 33vw;
         height: 33vw;
     }
 
     // Mobile CSS
 
     @media only screen and (max-width: 600px) {
-        width: 50%;
+        width: 50vw;
         height: 50vw;
     }
 `;

@@ -5,7 +5,7 @@ const DescriptionContainer = styled.div`
     ${box}
     padding: 40rem;
     flex-direction: column;
-    width: 30%;
+    width: clamp(80%, 60%, 30%);
 
     h1 {
         ${title}
@@ -14,8 +14,9 @@ const DescriptionContainer = styled.div`
 
     p {
         display: flex;
+        border: 1px solid #f00;
         align-items: center;
-        height: 30%;
+        height: fit-content;
         font-size: 20rem;
     }
 
@@ -29,23 +30,7 @@ const DescriptionContainer = styled.div`
         text-decoration: none;
         font-size: 20rem;
     }
-
-    @media screen and (max-width: 1024px) {
-        p {
-            height: 40%;
-        }
-    }
-
-    // Tablet CSS
-
-    @media screen and (max-width: 768px) {
-        width: 60%;
-
-        p {
-            height: 32%;
-        }
-    }
-
+    
     // Mobile CSS
 
     @media screen and (max-width: 600px) {
@@ -59,9 +44,6 @@ const DescriptionContainer = styled.div`
             margin-bottom: 30px;
         }
 
-        p {
-            height: fit-content;
-        }
     }
 `;
 

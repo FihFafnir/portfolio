@@ -1,11 +1,12 @@
 import React from "react";
+import FooterContainer from "./styles";
 import Contact from "./Contact";
 
 const Footer = () => {
     return (
-        <footer>
+        <FooterContainer>
             <Contact />
-        </footer>
+        </FooterContainer>
     );
 }
 

@@ -3,10 +3,10 @@ import { box } from "../../../../styles";
 
 const ControllerContainer = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: end;
     padding-bottom: 50rem;
-    width: 280rem;
+    width: 100%;
     height: 30%;
 
     button {
