@@ -1,15 +1,12 @@
 import styled from "styled-components";
 
-interface ILogoContainerProps {
-    black: boolean;
-}
-
 const LogoContainer = styled.a`
     font-size: 20rem;
     margin-left: 20rem;
-    color: ${({ black }: ILogoContainerProps) => black ? "#fff" : "#000"};
+    color: #fff;
     text-decoration: none;
     font-weight: bolder;
+    mix-blend-mode: difference;
 `;
 
 export default LogoContainer;

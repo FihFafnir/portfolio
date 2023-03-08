@@ -47,8 +47,8 @@ const HomeContainer = styled.section`
     &::after {
         content: "";
         position: absolute;
-        width: max(36vw, 200rem);
-        height: max(36vw, 200rem);
+        width: max(36vw, 180rem);
+        aspect-ratio: 1;
         right: 0;
         top: 0;
         opacity: 0.8;

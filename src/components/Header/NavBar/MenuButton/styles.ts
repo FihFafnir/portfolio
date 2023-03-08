@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-interface IMenuButtonContainerProps {
-    black: boolean;
-}
-
 const MenuButtonContainer = styled.label`
     position: relative;
     display: flex;
@@ -13,17 +9,22 @@ const MenuButtonContainer = styled.label`
     width: 30px;
     height: 30px;
     cursor: pointer;
+    mix-blend-mode: difference;
 
     .line {
         width: 24px;
         height: 3px;
         border-radius: 3px;
-        background-color: ${({ black }: IMenuButtonContainerProps) => black ? "#fff" : "#000"};
-        transition: all ease 0.6s;
+        background-color: #fff;
+        transition: transform ease 0.6s;
     }
 
     .line:nth-child(2) {
-        transition: all ease 0.2s;
+        transition: transform ease 0.2s;
+    }
+
+    #menu: checked ~ & {
+        mix-blend-mode: normal;
     }
 
     #menu: checked ~ & > .line:nth-child(1) {

@@ -32,11 +32,11 @@ const NavBar = () => {
 
     return (
         <NavBarContainer black={navBarBlack}>
-            <Logo black={navBarBlack} />
+            <Logo />
             <input id="menu" type="checkbox" onChange={() => {
                 setMenuChecked(() => !menuChecked);
             }} checked={menuChecked} />
-            <MenuButton black={navBarBlack} />
+            <MenuButton />
             <NavBarItems
                 setMenuChecked={setMenuChecked}
                 black={navBarBlack}

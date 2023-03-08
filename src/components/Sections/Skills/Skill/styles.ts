@@ -8,7 +8,7 @@ const SkillContainer = styled.div`
     flex-wrap: wrap;
     background-color: #ddd;
     width: 16vw;
-    height: 16vw;
+    aspect-ratio: 1;
     margin: -15px -10px 15px -10px;
     transform: scale(.6);
     transition: all ease 0.8s;

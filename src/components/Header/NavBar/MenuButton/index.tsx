@@ -1,13 +1,9 @@
 import React from "react";
 import MenuButtonContainer from "./styles";
 
-interface IMenuButtonProps {
-    black: boolean;
-}
-
-const MenuButton = ({ black }: IMenuButtonProps) => {
+const MenuButton = () => {
     return (
-        <MenuButtonContainer htmlFor="menu" className="menuButton" black={black}>
+        <MenuButtonContainer htmlFor="menu" className="menuButton">
             <div className="line"></div>
             <div className="line"></div>
             <div className="line"></div>
