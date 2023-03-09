@@ -2,47 +2,48 @@ import styled from "styled-components";
 import { box } from "../../../styles";
 
 const SkillContainer = styled.div`
-    position: relative;
     ${box}
-    align-items: center;
+    position: relative;
+    align-items: end;
     flex-wrap: wrap;
     background-color: #ddd;
-    width: 16vw;
-    aspect-ratio: 1;
-    margin: -15px -10px 15px -10px;
-    transform: scale(.6);
+    flex: 0 1 min(45vw, 280rem);
+    height: min(45vw, 280rem);
+    transform: scale(0.6);
     transition: all ease 0.8s;
     border-radius: 5px;
 
     &:hover {
         background-color: #333;
-        transform: scale(1);
-        height: 340rem;
+        transform: scale(1.1);
+        height: 400rem;
         color: #eee;
         box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
         z-index: 3;
     }
 
     .icon {
-        transition: transform ease 0.8s;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     &:hover > .icon {
-        transform: translateY(-90rem);
+        top: 50rem;
+        transform: translateY(0);
     }
 
     p {
-        position: absolute;
-        top: 130rem;
         text-align: justify;
         font-size: 15rem;
         width: 80%;
-        height: 0;
+        height: fit-content;
         opacity: 0;
+        border: 1px solid #f00;
     }
 
     &:hover > p {
-        height: 200rem;
+        border: 1px solid #f00;
         opacity: 1;
         transition: opacity 1s ease 0.5s;
     }
@@ -50,27 +51,6 @@ const SkillContainer = styled.div`
     &:hover ~ .blurredBackground {
         opacity: 1;
         transform: translateX(0);
-    }
-
-    // Laptop CSS
-
-    @media only screen and (max-width: 992px) {
-        width: 25vw;
-        height: 25vw;
-    }
-
-    // Tablet CSS
-
-    @media only screen and (max-width: 768px) {
-        width: 33vw;
-        height: 33vw;
-    }
-
-    // Mobile CSS
-
-    @media only screen and (max-width: 600px) {
-        width: 50vw;
-        height: 50vw;
     }
 `;
 

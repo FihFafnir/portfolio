@@ -21,6 +21,7 @@ const AboutContainer = styled.section`
     }
 
     p {
+        display: none;
         font-size: 20rem;
         margin: 20px;
         text-align: justify;
