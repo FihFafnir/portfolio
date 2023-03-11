@@ -4,8 +4,11 @@ import { title, box, section, blurredBackground } from "../../styles";
 
 const SkillsContainer = styled.section`
     ${section}
+    padding-top: 150px;
     position: relative;
     flex-direction: column;
+    justify-content: start;
+    overflow-y: hidden;
 
     h1 {
         ${title}
@@ -28,7 +31,7 @@ const SkillsContainer = styled.section`
 
     @media only screen and (max-width: 768px) {
         height: 100%;
-        padding-top: 120px;
+        padding-bottom: 30vh; 
     }
 `;
 

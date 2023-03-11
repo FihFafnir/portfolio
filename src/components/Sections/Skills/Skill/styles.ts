@@ -4,7 +4,6 @@ import { box } from "../../../styles";
 const SkillContainer = styled.div`
     ${box}
     position: relative;
-    align-items: end;
     flex-wrap: wrap;
     background-color: #ddd;
     flex: 0 1 min(45vw, 280rem);
@@ -16,16 +15,17 @@ const SkillContainer = styled.div`
     &:hover {
         background-color: #333;
         transform: scale(1.1);
-        height: 400rem;
+        //height: fit-content;
         color: #eee;
-        box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
         z-index: 3;
+        border-radius: 5px;
     }
 
     .icon {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        transition: all ease 1s;
     }
 
     &:hover > .icon {
@@ -34,18 +34,27 @@ const SkillContainer = styled.div`
     }
 
     p {
+        background-color: #ddd;
+        color: rgba(0,0,0,0);
         text-align: justify;
+        width: 100%;
         font-size: 15rem;
-        width: 80%;
-        height: fit-content;
-        opacity: 0;
-        border: 1px solid #f00;
+        z-index: -1;
+        height: 0;
+        border-radius: 5px;
+        padding: 20rem;
+        transition: background-color ease 0.8s;
     }
 
     &:hover > p {
-        border: 1px solid #f00;
-        opacity: 1;
-        transition: opacity 1s ease 0.5s;
+        background-color: #333;
+        padding-top: 150rem;
+        color: #eee;
+        height: fit-content;
+        transition:
+            all ease 0.8s,
+            height 0.8s ease 0.8s,
+            color 0.8s ease 0.5s;
     }
 
     &:hover ~ .blurredBackground {
